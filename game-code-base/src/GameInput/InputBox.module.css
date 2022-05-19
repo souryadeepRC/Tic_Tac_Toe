@@ -1,0 +1,46 @@
+.input-element{
+    padding: 0.51rem 0;
+}
+.input-element label{
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+}
+
+.input-element label p{
+    margin: 0;
+}
+
+.input-element label p:nth-child(1){
+    font-weight: bold;
+}
+.input-element label p:nth-child(2){ 
+    font-size: 12px;
+    color: red;
+}
+@media screen and (min-width:480px) {
+    .input-element label{
+        flex-direction: row;
+    }
+    
+.input-element label p:nth-child(2){
+    padding-left: 5px;
+}
+}
+.input-element input{
+    width: 85%;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 2px;
+}
+.input-element input,
+.input-element input:focus-visible{
+    
+    outline: none;
+    border: 0;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid !important;
+}
+.input-element input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}

@@ -1,0 +1,40 @@
+.app-container{
+    background: pink;
+}
+.logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(18px + 2vmin) 0;
+    border-bottom: 1px solid grey;
+    width: 75%;
+    margin: auto;
+}
+.logo-container img{
+    width: calc(50% + 2vmin);
+}
+.play-btn-container{
+    padding: calc(10px + 2vmin) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width:450px) and (max-width:800px) {
+    .logo-container{
+        width: 60%;
+        padding: calc(10px + 2vmin) 0;
+    }
+    .logo-container img{
+        width: calc(30% + 2vmin);
+    }
+}
+@media screen and (min-width:800px ) {
+    .logo-container{
+        width: 75%;
+        padding: calc(5px + 2vmin) 0;
+    }
+    .logo-container img{
+        width: calc(30% + 2vmin);
+    }
+}
