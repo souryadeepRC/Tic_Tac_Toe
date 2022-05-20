@@ -1,0 +1,29 @@
+.game-dashboard{ 
+    width: 95%;
+    margin: 0 auto;
+    border-top: 1px solid black;
+}
+
+.game-input-detail{
+    border-bottom: 1px solid black;
+    padding: 8px 0;
+    background: antiquewhite;
+    font-size: 12px;
+}
+.game-input-detail p{
+    margin: 0;
+}
+
+@media screen and (min-width:690px){
+    .game-dashboard{
+        width: 40%;
+        margin: 0;
+        border-top: 0;
+        border-left: 1px solid black;  
+    }
+    .game-input-detail{
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+}
+ 

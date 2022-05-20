@@ -1,0 +1,7 @@
+.previous-result__container{
+    display: flex;
+    justify-content: space-between;
+}
+.previous-result__container p{
+    margin: 0;
+}

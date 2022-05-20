@@ -1,0 +1,21 @@
+
+.previous-round-result__header{
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    background: #3c2e1b;
+    color: white;
+    padding: 8px 0;
+}
+.previous-round-result__content{
+    width: 95%;
+    margin: 0 auto;
+    font-size: 12px;
+    padding-top: 7px;
+}
+@media screen  and (min-width:500px){
+    .previous-round-result__content{
+        width: 85%; 
+        font-size: 14px;
+    }
+}

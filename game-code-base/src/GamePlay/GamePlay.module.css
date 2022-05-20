@@ -1,0 +1,12 @@
+.game-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media screen and (min-width:690px) {
+    .game-section {
+        flex-direction: row;
+    }
+}

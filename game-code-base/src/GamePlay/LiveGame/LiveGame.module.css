@@ -1,0 +1,30 @@
+.game-playground {
+    width: 95%;
+    margin: 0 auto;
+}
+@media screen and (min-width:690px){
+    .game-playground{
+        width: 50%; 
+    }
+}
+
+.game-playground__header{
+    border-bottom: 1px solid grey;
+}
+.game-playground__status {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.game-playground__status p {
+    margin: 0;
+}
+.game-playground__match_info{
+    display: flex;
+    justify-content: space-around;
+}
+.game-playground__btn-container{
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+}

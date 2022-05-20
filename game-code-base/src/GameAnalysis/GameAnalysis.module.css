@@ -1,0 +1,38 @@
+.game-analysis{
+    width: 85%;
+    margin: 0 auto;
+}
+.game-analysis__header{
+    text-align: center;
+}
+.game-analysis__count{
+    display: flex;
+    justify-content: space-around;
+}
+.game-analysis__count p{
+    margin: 4px 0;
+}
+
+.game-analysis__message{
+    text-align: center;
+}
+
+.game-analysis__button-container{
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
+} 
+
+.game-analysis__button-container button{
+    margin: 5px 0;
+}
+@media screen and (min-width:800px){
+    .game-analysis{
+        width: 75%;
+    }
+    .game-analysis__button-container{
+        flex-direction: row;
+    }
+}

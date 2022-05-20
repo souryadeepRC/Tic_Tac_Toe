@@ -6,7 +6,7 @@ function App() {
     <div className='app-container' >
       <header>Tic Tac Toe</header>
       <AppContent />
-      <footer> <p>Designed by Souryadeep Roy Chowdhury</p> </footer>
+      <footer> <p>&copy;&nbsp;Developed by Souryadeep Roy Chowdhury</p> </footer>
     </div>
   );
 }
