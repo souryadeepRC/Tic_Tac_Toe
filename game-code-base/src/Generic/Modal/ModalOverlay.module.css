@@ -22,14 +22,40 @@
 .overlay__header__text {
     text-align: center;
     width: 100%;
+    font-weight: bold;
+}
+.overlay__header__close_btn{
+    margin: 12px 0;
+    padding: 2px 0;
+    background: #50b0bf;
+    color: white;
+    font-weight: bold;
+    border-radius: 52px;
+    width: 15%;
+    text-align: center;
 }
 
+.overlay__header__close_btn:hover{
+    background: #2c707a;
+}
 .overlay__content {
     width: 95%;
     height: 90%;
     margin: 0 auto;
 }
 
+@media screen and (min-width:480px) and (max-width:800px) {
+    
+    .overlay__header__close_btn{
+        width: 7%;
+    }
+}
+@media screen and (min-width:800px) {
+ 
+    .overlay__header__close_btn{
+        width: 5%;
+    }
+}
 @media screen and (min-width:480px) {
     .overlay-container {
         top: 25%;
