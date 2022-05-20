@@ -3,7 +3,7 @@ import styles from './HomeContent.module.css'
 import './AppContent.css' 
 import { useState } from 'react' 
 import GameInputModal from '../GameInput/GameInputModal'
-import AppContent from './AppContent'
+import logo from '../images/Tic_tac_toe.png'
 
 const HomeContent = (props) => {
     console.log('Load HomeContent');
@@ -22,7 +22,7 @@ const HomeContent = (props) => {
             return (
                 <div className={styles['app-container']}>
                     <div className={styles['logo-container']}>
-                        <img src="Tic_tac_toe.png" alt='App-icon' />
+                        <img src={logo} alt='App-icon' />
                     </div>
                     <div className={styles['play-btn-container']}>
                         <button onClick={playBtnHandler}>Let's Play</button>
