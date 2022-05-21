@@ -1,4 +1,4 @@
-import './App.css';
+import './App.css'; 
 import AppContent from './UI/AppContent';
 
 function App() {

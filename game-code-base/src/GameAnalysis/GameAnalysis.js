@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import AppContent from '../UI/AppContent'
 import styles from './GameAnalysis.module.css'
-import PlayerResult from './PlayerResult'
-import PrintResultView from './PrintResultView'
+import PlayerResult from './PlayerResult' 
+import { jsPDF } from "jspdf";
 const GameAnalysis = (props) => {
-    const [printMode, setPrintMode] = useState(false)
+ 
     const [gameStatus, setGameStatus] = useState(false)
     const PLAYER_SIGN = {
         'First_Player' : 'X',
         'Second_Player' : '0'
-    }
+    } 
     const WINNING_TYPE = {
         'No_Player_Win' : 0,
         'Single_Player_Win' : 1,
@@ -84,13 +84,6 @@ const GameAnalysis = (props) => {
     }
    
     const analysis = performWinnerCalculation()
-    const printCertificateHandler = () => {
-        setPrintMode(true)
-    }
-    const onCertificatePrintHandler = () => {
-        setPrintMode(false)
-    }
-    const playAgainHandler = () => setGameStatus(true)
 
     /**============   Congratulations Message Logic Seperations  ============= */
     let congratulatioMsg = <p>Sorry we haven't found any winner. Well Played Both of you.</p>
@@ -105,23 +98,57 @@ const GameAnalysis = (props) => {
         }
     }
 
+    const getFormattedSystemDate = () => {
+        const systemDate = new Date()
+        const date = systemDate.toLocaleDateString('en-US', { 'day': 'numeric' })
+        const month = systemDate.toLocaleDateString('en-US', { 'month': 'long' })
+        const year = systemDate.toLocaleDateString('en-US', { 'year': 'numeric' })
+        return `${month} ${date}, ${year}`
+    }
+    const downloadPDFHandler = () => {
+            const pdf = new jsPDF("l", 'px', "A4");
+            const winningMsg = analysis.Win_Type !== WINNING_TYPE.Both_Player_Win ? 'winning' : 'getting tied in'
+            const pageWidth = pdf.internal.pageSize.width || pdf.internal.pageSize.getWidth();
+            pdf.setLineWidth(2);
+            pdf.rect(60, 50, 500, 350);
+            pdf.rect(70, 60, 480, 330);
+            pdf.setFontSize(20);
+            pdf.setFont('courier', 'bold')
+            
+            pdf.text('CERTIFICATE OF APPRECIATION', pageWidth / 2, 100, {align: 'center'});
+            pdf.setLineWidth(2);
+            pdf.line(170, 120, 470, 120) 
+            
+            pdf.setFont('times', 'normal')
+            pdf.setFontSize(15);
+            pdf.text('We are proud to present this certificate to', pageWidth / 2, 160, {align: 'center'});
+    
+            pdf.setFont('times', 'bold')
+            pdf.setFontSize(24); 
+            pdf.text(analysis.Winner_Detail.Name, pageWidth / 2, 200, {align: 'center'});
+            
+            pdf.setFontSize(15);
+            
+            pdf.setFont('times', 'normal')
+            pdf.setFontSize(15); 
+            pdf.text(`for ${winningMsg} the ${analysis.Total_Round} Round Tic-Tac-Toe Game with an winning percentage of ${analysis.Winner_Detail.Percentage}%.`
+                    , pageWidth / 2, 240, {align: 'center'});
+            
+            pdf.setFont('times', 'italic')
+            pdf.text('Congratulations on your great achievement', pageWidth / 2, 260, {align: 'center'});
+            
+            pdf.text(`Awarded this ${getFormattedSystemDate()}`, pageWidth / 2, 320, {align: 'center'});
+             
+            pdf.save(`Certificate of Appreciation_for_${analysis.Winner_Detail.Name}.pdf`);
+    
+        
+    }
      
     if(gameStatus){
         return <AppContent />
-    }else if (printMode) {
-        return <PrintResultView 
-                    result={{
-                        'Name' : analysis.Winner_Detail.Name,
-                        'Total_Round' : analysis.Total_Round,
-                        'Win_Type' : analysis.Win_Type,
-                        'percentage' : analysis.Winner_Detail.Percentage
-                    }} 
-                    onCertificatePrint ={onCertificatePrintHandler}
-                />
-    } else {
+    }else {
         return (
             <div className={styles['game-analysis']}>
-               
                 <h2 className={styles['game-analysis__header']}>Match Analysis</h2>
                 <hr />
                 <div className={styles['game-analysis__count']}>
@@ -135,11 +162,9 @@ const GameAnalysis = (props) => {
                 <div className={styles['game-analysis__message']}>{congratulatioMsg}</div>
                 <div className={styles['game-analysis__button-container']}>
                     {analysis.Win_Type !==WINNING_TYPE.No_Player_Win
-                        ? <button onClick={printCertificateHandler}>Generate Certificate</button> : ''}
-                    <button onClick={playAgainHandler}>Please Play&nbsp;again</button>
+                        ? <button onClick={downloadPDFHandler}>Generate Certificate</button> : ''}
+                    <button onClick={() => setGameStatus(true)}>Please Play&nbsp;again</button>
                 </div>
-
-
             </div>
         )
     }
