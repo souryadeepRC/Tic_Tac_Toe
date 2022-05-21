@@ -6,8 +6,8 @@ import InputBox from "./InputBox"
 
 const GameInputModal = (props) => { 
     const DEFAULT_INPUT_VALUE = {
-        'First_Player_Name': 'Player 1',
-        'Second_Player_Name': 'Player 2',
+        'First_Player_Name': 'A',
+        'Second_Player_Name': 'B',
         'Round': '5'
     }
     const DEFAULT_INPUT_DETAIL = {
@@ -45,7 +45,7 @@ const GameInputModal = (props) => {
     
     return (
         <Modal className={styles['container']} 
-            Header='Game Input Form'
+            Header='Fill Customize Info'
             onModalClose={() => props.onModalClose()} 
             onBackdropClicked ={() => props.onBackdropClicked()}>
             <div className={styles['container__input']}>

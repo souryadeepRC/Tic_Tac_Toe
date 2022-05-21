@@ -4,7 +4,8 @@
     left: 8%;
     width: calc(70% + 15vmin);
     background: white;
-    height: calc(70vh + 10vmin);
+    /* height: calc(70vh + 10vmin); */
+    padding: 0.5rem 0 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -14,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
-    height: 10%;
+    /* height: 10%; */
     margin: 0 auto;
     border-bottom: 1px solid grey;
 }
@@ -40,7 +41,7 @@
 }
 .overlay__content {
     width: 95%;
-    height: 90%;
+    /* height: 90%; */
     margin: 0 auto;
 }
 
@@ -59,15 +60,15 @@
 @media screen and (min-width:480px) {
     .overlay-container {
         top: 25%;
-        height: calc(50vh + 10vmin);
+        /* height: calc(50vh + 10vmin); */
     }
 
     .overlay__header {
-        height: 15%;
+        /* height: 15%; */
     }
 
     .overlay__content {
         width: 95%;
-        height: 85%;
+        /* height: 85%; */
     }
 }
